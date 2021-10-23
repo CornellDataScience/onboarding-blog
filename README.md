@@ -27,3 +27,5 @@ Get familiar with designing a simple web app with frontend + backend + database 
 - index.html to show the latest blog posts
 - User profile pages - show details of the poster
 - Blog post pages - show the actual blog post & metadata
+
+HELLO WORLD~~~~~~~~~~
