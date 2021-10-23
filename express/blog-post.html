@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="blog-post.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Blog Post</title>
+</head>
+<body>
+  
+
+  <div class="blog-main">
+    <h1 class="blog-title">Optimal Classification Trees Paper Summary & Analysis</h1>
+
+    <div class="author-info">
+      <img class="cds-img" src="cds.jpg">
+      <a class="blog-author" href="#">Cornell Data Science</a>
+      <span class="dot"></span>
+      <h3 class="blog-date">October 22, 2021</h3>
+    </div>
+
+    <div class="blog-section">
+      <h4 class="blog-heading">Paper Objective</h4>
+    
+      <p class="blog-content">
+        A decision tree is a flowchart-like structure where every node represents a 
+        “test” on an attribute, each branch represents the outcome of a test, and each 
+        leaf node represents a class label, or the decision taken after considering 
+        all attributes. Because they are created using a top-down approach, the first 
+        splits are made with no regard to future splits, meaning they are rarely 
+        optimal. To address this, a pruning step is required after creating the tree. 
+        Optimizing decision trees is NP-hard, meaning that it has not been very 
+        explored before. This paper uses mixed integer optimization to optimize the 
+        tree, a technique that is an integer program, with one or more variables 
+        constrained as integers.
+
+        MIO programming was computationally expensive in the past, but solvers 
+        such as Gurobi and CPLEX have improved greatly over the last decade or 
+        two, meaning MIO is more useful than ever.
+      </p>
+    </div>
+
+    <div class="blog-section">
+      <h4 class="blog-heading">Paper Contributions</h4>
+    
+      <p class="blog-content">
+        The authors, motivated by rapid development of optimization theory and 
+        hardware improvements, present an algorithm that utilizes mixed-integer 
+        optimization (a linear program in which 1 or more of the variables are 
+        constrained to be integers).
+        The researchers revisited the classical optimal decision tree creation 
+        problem using the state-of-the-art MIO formulation approach.
+        Previously, to find an optimal decision tree, the most common approach 
+        is through heuristics such as top down induction and pruning, and no 
+        effective algorithm that runs within time constraint is proposed.
+        By relaxing constraints, the resulting classification method — Optimal 
+        Classification Trees with hyperplanes — is easy to train.
+        The paper assessed its results on a variety of synthetically-generated 
+        datasets by comparing the performance of optimal axis-aligned trees with 
+        normal decision trees, the performance of linear-split optimal decision 
+        trees with XGBoost and random forest. They used accuracy as their metric 
+        of comparison.
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
