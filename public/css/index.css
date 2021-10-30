@@ -1,0 +1,59 @@
+/* index.css
+ * The home page CSS.
+ */
+
+.main-container {
+  display: grid;
+  grid-template-columns: 250px auto;
+  column-gap: 50px;
+  width: 1200px;
+  margin: 100px auto;
+}
+
+.left-col {
+  padding: 20px;
+}
+
+.right-col {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 800px;
+}
+
+.thumbnail {
+  width: 8rem;
+}
+
+.thumbnail-image {
+  width: 100%;
+}
+
+.thumbnail-title {
+  font-weight: 800;
+  padding-bottom: 1rem;
+}
+
+.blog-post {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.blog-post-title {
+  font-weight: 1000;
+  font-size: 24px;
+  padding-bottom: 1rem;
+}
+
+.blog-post-subtitle {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 2rem;
+}
+
+p span {
+  display: block;
+}
+
+a {
+  word-wrap: break-word;
+}

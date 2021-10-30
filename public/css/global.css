@@ -41,6 +41,10 @@ section {
   display: block;
 }
 
+.bold {
+  font-weight: 500;
+}
+
 /* Noscript message is center-aligned */
 #noscript-msg {
   text-align: center;
