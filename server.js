@@ -4,11 +4,12 @@ const path = require("path");
 const app = express();
 
 app.use(express.json());
-app.use(express.static("express"));
+app.use(express.static("pages"));
+app.use(express.static(__dirname + "/public"));
 
 // default URL for website
 app.use("/", function (req, res) {
-  res.sendFile(path.join(__dirname + "/express/index.html"));
+  res.sendFile(path.join(__dirname + "/pages/index.html"));
   //__dirname : It will resolve to your project folder.
 });
 
