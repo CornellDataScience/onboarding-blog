@@ -5,13 +5,15 @@
 .main-container {
   display: grid;
   grid-template-columns: 250px auto;
-  column-gap: 50px;
+  column-gap: 40px;
   width: 1200px;
   margin: 100px auto;
+  margin-top: 50px;
 }
 
 .left-col {
   padding: 20px;
+  text-align: center;
 }
 
 .right-col {
@@ -22,6 +24,9 @@
 
 .thumbnail {
   width: 8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .thumbnail-image {
@@ -31,6 +36,7 @@
 .thumbnail-title {
   font-weight: 800;
   padding-bottom: 1rem;
+  text-align: center;
 }
 
 .blog-post {
@@ -50,10 +56,34 @@
   line-height: 2rem;
 }
 
+.blog-post-paper {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 2rem;
+}
+
+.dot {
+  height: 5px;
+  width: 5px;
+  background-color: gray;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  justify-content: center;
+}
+
 p span {
   display: block;
 }
 
 a {
   word-wrap: break-word;
+}
+
+.line-e {
+  margin-top: 50px;
+  background-color: black;
 }
