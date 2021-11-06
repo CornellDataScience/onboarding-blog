@@ -37,7 +37,7 @@ app.get("/", function (req, res) {
   });
 });
 
-app.get("/blog", function(req, res) {
+app.get("/blog", function (req, res) {
   let title = "Optimal Classification Trees Paper Summary & Analysis";
   let author = "Cornell Data Science";
   let date = "October 22, 2021";
@@ -57,7 +57,7 @@ app.get("/blog", function(req, res) {
 
       MIO programming was computationally expensive in the past, but solvers 
       such as Gurobi and CPLEX have improved greatly over the last decade or 
-      two, meaning MIO is more useful than ever.`
+      two, meaning MIO is more useful than ever.`,
     },
     {
       heading: "Paper Contributions",
@@ -76,18 +76,18 @@ app.get("/blog", function(req, res) {
       datasets by comparing the performance of optimal axis-aligned trees with 
       normal decision trees, the performance of linear-split optimal decision 
       trees with XGBoost and random forest. They used accuracy as their metric 
-      of comparison.`
-    }
-  ]
+      of comparison.`,
+    },
+  ];
   res.render("pages/blog", {
     title: title,
     author: author,
     date: date,
-    posts: posts
+    posts: posts,
   });
-})
+});
 
 const server = http.createServer(app);
-const port = 3000;
+let port = process.env.PORT || 3000;
 server.listen(port);
 console.debug("Server listening on port " + port);
