@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" type="text/css" href="css/fonts.css">
   <title>Cornell Data Science | Blog</title>
 </head>
+
 <body>
   <div class="main-container">
     <div class="left-col">
@@ -17,20 +19,29 @@
       </div>
       <p>
         <span class="bold thumbnail-title">Cornell Data Science</span>
-        Cornell Data Science is an engineering project team @Cornell that seeks 
+        Cornell Data Science is an engineering project team @Cornell that seeks
         to prepare students for a career in data science.
       </p>
     </div>
     <div class="right-col">
 
       <!-- TODO: Automatically insert <a> anchor tags by detecting links -->
-      <% posts.forEach(post => { %>
-      <div class="blog-post" id="blog-post-1">
-        <p class="blog-post-title"><%= post.title %></p>
-        <p class="blog-post-subtitle"><%= post.subtitle %></p>
-      </div>
-      <hr>
-      <% }); %>
+      <% posts.forEach(post=> { %>
+        <div class="blog-post" id="blog-post-1">
+          <p class="blog-post-title">
+            <%= post.title %>
+          </p>
+          <p class="blog-post-subtitle">
+            <%= post.subtitle %>
+          </p>
+          <p class="blog-post-paper">
+            <a href=<%=post.paper %>>Paper</a>
+            <span class="dot"></span>
+            <%= post.date %>
+          </p>
+        </div>
+        <hr>
+        <% }); %>
 
     </div>
   </div>
@@ -41,4 +52,5 @@
     </div>
   </noscript>
 </body>
+
 </html>

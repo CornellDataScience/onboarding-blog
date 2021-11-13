@@ -1,3 +1,12 @@
+var mysql = require('mysql');
+const { resourceLimits } = require("worker_threads");
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'blog_db'
+})
+
 const http = require("http");
 const express = require("express");
 const path = require("path");
@@ -14,27 +23,18 @@ app.set("view engine", "ejs");
 // res.sendFile(path.join(__dirname + "/pages/index"));
 // });
 
+connection.connect();
 // index page
 app.get("/", function (req, res) {
-  let posts = [
-    {
-      title: "Optimal Classification Trees Paper Summary & Analysis",
-      subtitle:
-        "Paper: https://link.springer.com/article/10.1007/s10994-017-5633-9\nDiscussion led by Peter Husisian & Julia Allen, Intelligent Systems Subteam",
-      content: "Example blog post content!\nHello World",
-    },
-    {
-      title:
-        "Do Better ImageNet Models Transfer Better? Paper Summary & Analysis",
-      subtitle:
-        "Paper: https://openaccess.thecvf.com/content_CVPR_2019/papers/Kornblith_Do_Better_ImageNet_Models_Transfer_Better_CVPR_2019_paper.pdf\nDiscussion led by Stephen Tse & Felix Hohne, Intelligent Systems Subteam",
-      content: "Example blog post content numero 2!\nHello World 2",
-    },
-  ];
+  // let posts = [];
+    connection.query("SELECT * FROM blogs", function (err, posts, fields) {
+      if (err) throw err;
 
-  res.render("pages/index", {
-    posts: posts,
-  });
+      console.log(posts);
+      res.render("pages/index", {
+        posts: posts,
+      });
+    });
 });
 
 app.get("/blog", function (req, res) {
@@ -87,21 +87,6 @@ app.get("/blog", function (req, res) {
   });
 });
 
-var mysql = require('mysql')
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'cornellde',
-  database: 'blog_db'
-})
-
-connection.connect(function(err) {
-  if (err) throw err;
-  connection.query("SELECT * FROM users", function (err, result, fields) {
-    if (err) throw err;
-    console.log(result[0]['name']);
-  });
-});
 
 const server = http.createServer(app);
 let port = process.env.PORT || 3000;
