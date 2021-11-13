@@ -87,6 +87,22 @@ app.get("/blog", function (req, res) {
   });
 });
 
+var mysql = require('mysql')
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'cornellde',
+  database: 'blog_db'
+})
+
+connection.connect(function(err) {
+  if (err) throw err;
+  connection.query("SELECT * FROM users", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result[0]['name']);
+  });
+});
+
 const server = http.createServer(app);
 let port = process.env.PORT || 3000;
 server.listen(port);
