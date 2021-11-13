@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/authors.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+</head>
+
+<body>
+    <div class="main-cont">
+        <div class="head">
+            <div class="pic-col">
+                <img class="profile-pic" src="images/pfp.png">
+            </div>
+            <div class="description">
+                <h1>John Doe</h1>
+                <h3>John's interesting and long description. John's interesting
+                    and long description. John's interesting and long
+                    description. John's interesting and long description. John's
+                    interesting and long description. John's interesting and
+                    long description.</h3>
+                <h5 class="contact">Email: jd123@cornell.edu</h5>
+            </div>
+        </div>
+        <div class="main">
+            <div>
+                <!-- TODO: Automatically insert <a> anchor tags by detecting links -->
+                <% posts.forEach(post=> { %>
+                    <div class="blog-post" id="blog-post-1">
+                        <p class="blog-post-title">
+                            <%= post.title %>
+                        </p>
+                        <p class="blog-post-subtitle">
+                            <%= post.subtitle %>
+                        </p>
+                    </div>
+                    <hr>
+                    <% }); %>
+            </div>
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-msg">
+            <p>Please turn on JavaScript to display the website correctly!</p>
+        </div>
+    </noscript>
+</body>
+
+</html>
