@@ -26,8 +26,9 @@
       <!-- TODO: Automatically insert <a> anchor tags by detecting links -->
       <% posts.forEach(post => { %>
       <div class="blog-post" id="blog-post-1">
+        <p class="blog-post-title"><%= post.author_id %></p>
         <p class="blog-post-title"><%= post.title %></p>
-        <p class="blog-post-subtitle"><%= post.subtitle %></p>
+        <p class="blog-post-subtitle"><%- post.content %></p>
       </div>
       <hr>
       <% }); %>
