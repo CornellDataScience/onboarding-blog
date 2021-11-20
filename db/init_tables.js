@@ -2,7 +2,7 @@ var mysql = require('mysql')
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'cornellde',
+  password: 'password',
   database: 'blog_db'
 })
 
@@ -11,21 +11,21 @@ connection.connect()
 // connection.query(`DROP TABLE blogs;`)
 // connection.query(`DROP TABLE users;`)
 
-connection.query(`CREATE TABLE IF NOT EXISTS users(
-  id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  PRIMARY KEY(id)
+connection.query(`CREATE TABLE users(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL
   );`, function (err, rows, fields) {
   if (err) throw err
 })
 
-connection.query(`CREATE TABLE IF NOT EXISTS blogs(
-  id INT NOT NULL AUTO_INCREMENT,
+connection.query(`CREATE TABLE blogs(
+  id INT AUTO_INCREMENT PRIMARY KEY,
   author_id INT NOT NULL,
-  date DATETIME NOT NULL,
+  date DATE NOT NULL,
   title VARCHAR(255) NOT NULL,
-  content LONGTEXT NOT NULL, 
-  PRIMARY KEY(id),
+  subtitle LONGTEXT NOT NULL,
+  paper LONGTEXT NOT NULL,
+  content LONGTEXT NOT NULL,
   FOREIGN KEY(author_id) REFERENCES users(id)
   );`, function (err, rows, fields) {
   if (err) throw err

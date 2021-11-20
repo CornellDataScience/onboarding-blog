@@ -1,3 +1,12 @@
+var mysql = require('mysql');
+const { resourceLimits } = require("worker_threads");
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'blog_db'
+})
+
 const http = require("http");
 const express = require("express");
 const path = require("path");
@@ -38,8 +47,6 @@ app.get("/blog/:id", function (req, res) {
     });
   });
 });
-
-
 
 const server = http.createServer(app);
 let port = process.env.PORT || 3000;

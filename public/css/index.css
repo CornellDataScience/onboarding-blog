@@ -57,3 +57,16 @@ p span {
 a {
   word-wrap: break-word;
 }
+
+.dot {
+  height: 5px;
+  width: 5px;
+  background-color: gray;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  justify-content: center;
+}
