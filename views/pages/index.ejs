@@ -23,10 +23,10 @@
         </p>
       </div>
       <div class="right-col">
-        <!-- TODO: Automatically insert <a> anchor tags by detecting links -->
         <% const options = { weekday: 'long', year: 'numeric', month: 'long',
         day: 'numeric' }; posts.forEach(post => { %>
         <div class="blog-post" id="blog-post-1">
+          <p class="blog-post-title"><%= post.author_id %></p>
           <p class="blog-post-title"><%= post.title %></p>
           <p class="blog-post-subtitle"><%= post.subtitle %></p>
           <p class="blog-post-paper">
@@ -34,6 +34,7 @@
             <span class="dot"></span>
             <%= post.date.toLocaleDateString("en-US", options) %>
           </p>
+          <p class="blog-post-subtitle"><%= post.content %></p>
         </div>
         <hr />
         <% }); %>
