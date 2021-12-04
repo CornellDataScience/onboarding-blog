@@ -1,11 +1,11 @@
-var mysql = require('mysql');
+var mysql = require("mysql");
 const { resourceLimits } = require("worker_threads");
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'blog_db'
-})
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "blog_db",
+});
 
 const http = require("http");
 const express = require("express");
@@ -27,14 +27,17 @@ connection.connect();
 // index page
 app.get("/", function (req, res) {
   // let posts = [];
-    connection.query("SELECT * FROM blogs", function (err, posts, fields) {
+  connection.query(
+    "SELECT * FROM posts ORDER BY date DESC",
+    function (err, posts, fields) {
       if (err) throw err;
 
       console.log(posts);
       res.render("pages/index", {
         posts: posts,
       });
-    });
+    }
+  );
 });
 
 app.get("/blog", function (req, res) {
@@ -86,7 +89,6 @@ app.get("/blog", function (req, res) {
     posts: posts,
   });
 });
-
 
 const server = http.createServer(app);
 let port = process.env.PORT || 3000;
