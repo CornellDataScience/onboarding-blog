@@ -22,7 +22,6 @@ CREATE TABLE posts (
 );
 
 INSERT INTO users (name)
-VALUES ("David Kim");INSERT INTO users (name)
 VALUES ("David Kim");
 
 INSERT INTO posts (author_id, date, title, subtitle, paper, content) 
@@ -40,7 +39,7 @@ VALUES ("Immanuel Trummer");
 
 INSERT INTO posts (author_id, date, title, subtitle, paper, content) 
 VALUES (
-  1, 
+  2, 
   "2019-11-16", 
   "SkinnerDB: Regret-Bounded Query Evaluation via Reinforcement Learning", 
   "Cited by 59", 

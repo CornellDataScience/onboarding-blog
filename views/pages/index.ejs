@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+    <script src="js/index.js"></script>
     <title>Cornell Data Science | Blog</title>
   </head>
 
@@ -25,16 +26,19 @@
       <div class="right-col">
         <% const options = { weekday: 'long', year: 'numeric', month: 'long',
         day: 'numeric' }; posts.forEach(post => { %>
-        <div class="blog-post" id="blog-post-1">
-          <p class="blog-post-title"><%= post.author_id %></p>
+        <div class="blog-post" id="blog-post-<%= post.id %>">
           <p class="blog-post-title"><%= post.title %></p>
           <p class="blog-post-subtitle"><%= post.subtitle %></p>
           <p class="blog-post-paper">
-            <a target="_blank" href=<%= post.paper %>>Paper</a>
+            <a target="_blank" href="<%= post.paper %>">Paper</a>
             <span class="dot"></span>
             <%= post.date.toLocaleDateString("en-US", options) %>
+            <span class="dot"></span>
+            <%= users.find(user => user.id === post.author_id).name %>
           </p>
-          <p class="blog-post-subtitle"><%= post.content %></p>
+          <p class="blog-post-content">
+            <%= utils.parseContentPreview(post.content) %>
+          </p>
         </div>
         <hr />
         <% }); %>
