@@ -1,6 +1,7 @@
-DROP DATABASE IF EXISTS blog_db;
-CREATE DATABASE blog_db;
-USE blog_db;
+-- DROP DATABASE IF EXISTS blog_db;
+-- CREATE DATABASE blog_db;
+-- USE blog_db;
+USE zjv41srf1j2d4ppz;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
