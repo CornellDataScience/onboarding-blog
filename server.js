@@ -11,11 +11,18 @@ app.use(express.static(__dirname + "/public"));
 // Custom imports
 const indexScripts = require("./public/js/index.js");
 
+// const connection = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "cornellde",
+//   database: "blog_db",
+// });
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "cornellde",
-  database: "blog_db",
+  host: "uzb4o9e2oe257glt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  user: "hnegdidotbrxz9cw",
+  password: "v81k0tcwfsxigeoz",
+  port: 3306,
+  database: "zjv41srf1j2d4ppz",
 });
 
 // Use EJS for our engine to render pages
