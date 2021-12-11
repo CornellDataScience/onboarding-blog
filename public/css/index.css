@@ -41,7 +41,6 @@
 .blog-post-title {
   font-weight: 1000;
   font-size: 24px;
-  padding-bottom: 1rem;
 }
 
 .blog-post-subtitle {
@@ -50,10 +49,27 @@
   line-height: 2rem;
 }
 
+.blog-post-content {
+  padding-top: 1rem;
+}
+
 p span {
   display: block;
 }
 
 a {
   word-wrap: break-word;
+}
+
+.dot {
+  height: 5px;
+  width: 5px;
+  background-color: gray;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  justify-content: center;
 }

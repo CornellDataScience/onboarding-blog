@@ -1,44 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" type="text/css" href="css/fonts.css">
-  <title>Cornell Data Science | Blog</title>
-</head>
-<body>
-  <div class="main-container">
-    <div class="left-col">
-      <div class="thumbnail">
-        <img class="thumbnail-image" src="images/cds.jpg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+    <script src="js/index.js"></script>
+    <title>Cornell Data Science | Blog</title>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="left-col">
+        <div class="thumbnail">
+          <img class="thumbnail-image" src="images/cds.jpg" />
+        </div>
+        <p>
+          <span class="bold thumbnail-title">Cornell Data Science</span>
+          Cornell Data Science is an engineering project team @Cornell that
+          seeks to prepare students for a career in data science.
+        </p>
       </div>
-      <p>
-        <span class="bold thumbnail-title">Cornell Data Science</span>
-        Cornell Data Science is an engineering project team @Cornell that seeks 
-        to prepare students for a career in data science.
-      </p>
-    </div>
-    <div class="right-col">
-
-      <!-- TODO: Automatically insert <a> anchor tags by detecting links -->
-      <% posts.forEach(post => { %>
-      <div class="blog-post" id="blog-post-1">
-        <p class="blog-post-title"><%= post.title %></p>
-        <p class="blog-post-subtitle"><%= post.subtitle %></p>
+      <div class="right-col">
+        <% const options = { weekday: 'long', year: 'numeric', month: 'long',
+        day: 'numeric' }; posts.forEach(post => { %>
+        <div class="blog-post" id="blog-post-<%= post.id %>">
+          <a href="post/<%= post.id %>" style="color:black"><p class="blog-post-title" href="www.google.com"><%= post.title %></p></a>
+          <p class="blog-post-subtitle"><%= post.subtitle %></p>
+          <p class="blog-post-paper">
+            <a target="_blank" href="<%= post.paper %>">Paper</a>
+            <span class="dot"></span>
+            <%= post.date.toLocaleDateString("en-US", options) %>
+            <span class="dot"></span>
+            <%= users.find(user => user.id === post.author_id).name %>
+          </p>
+          <p class="blog-post-content">
+            <%= utils.parseContentPreview(post.content) %>
+          </p>
+        </div>
+        <hr />
+        <% }); %>
       </div>
-      <hr>
-      <% }); %>
-
     </div>
-  </div>
 
-  <noscript>
-    <div id="noscript-msg">
-      <p>Please turn on JavaScript to display the website correctly!</p>
-    </div>
-  </noscript>
-</body>
+    <noscript>
+      <div id="noscript-msg">
+        <p>Please turn on JavaScript to display the website correctly!</p>
+      </div>
+    </noscript>
+  </body>
 </html>
