@@ -27,7 +27,7 @@
         <% const options = { weekday: 'long', year: 'numeric', month: 'long',
         day: 'numeric' }; posts.forEach(post => { %>
         <div class="blog-post" id="blog-post-<%= post.id %>">
-          <p class="blog-post-title"><%= post.title %></p>
+          <a href="post/<%= post.id %>" style="color:black"><p class="blog-post-title" href="www.google.com"><%= post.title %></p></a>
           <p class="blog-post-subtitle"><%= post.subtitle %></p>
           <p class="blog-post-paper">
             <a target="_blank" href="<%= post.paper %>">Paper</a>
